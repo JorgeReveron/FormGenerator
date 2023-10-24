@@ -1,13 +1,14 @@
 <?php 
     require_once "Form.php";
     require_once "Field.php";
+    require_once "SimpleField.php";
 
     $form1 = new Form("validate.php","Prueba formulario","POST");
-    $field1 = new Field("campo 1","text");
-    $form1->add($field1);
-    $form1->add(new Field("campo 2","number"));
-    $form1->add(new Field("campo 3", "color"));
-    $form1->add(new Field("check 4", "color"));
+    $simpleField1 = new SimpleField("nombre","text","Escribe el nombre");
+    $form1->add($simpleField1);
+    $form1->add(new SimpleField("edad","number","¿Que edad tienes?",18));
+    $form1->add(new SimpleField("color", "color","¿Cual es tu color preferido?","#FF0000"));
+    $form1->add(new SimpleField("suscripcion", "checkbox","¿Quieres suscribirte?","true"));
 ?>
 <!DOCTYPE html>
 <html lang="en">

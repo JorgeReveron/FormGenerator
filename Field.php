@@ -1,17 +1,16 @@
 <?php
-class Field{
-    private $name;
-    private $type;
+abstract class Field{
+    protected $name;
+    protected $type;
+    protected $text;
+    protected $default;
 
-    public function __construct($name,$type){
+    public function __construct($name,$type,$text,$default=" "){
         $this->name = $name;
         $this->type = $type;
+        $this->text = $text;
+        $this->default = $default;
     }
 
-    public function render(){
-        echo "<p>
-        <label for='id_$this->name'>$this->name: </label>\n
-        <input type='$this->type' name='$this->name' id='id_$this->name'></input>
-        </p>";
-    }
+    abstract public function render();
 }
