@@ -3,6 +3,8 @@
     require_once "Field.php";
     require_once "SimpleField.php";
     require_once "MultipleField.php";
+    require_once "Document.php";
+    require_once "Paragraph.php";
 
     $form1 = new Form("validate.php","Prueba formulario","POST");
     $simpleField1 = new SimpleField("nombre","text","Escribe el nombre");
@@ -18,22 +20,11 @@
     $multipleField1 = new MultipleField("preferido","radio","¿Cual es tu modulo preferido?","Despliegue de aplicaciones", $options);
     $form1->add($multipleField1);
     $multipleField1->addOption("Diseño de interfaces web", "DOR");
+    $parrafo1 = new Paragraph("Hola mundo");
+    $document = new Document("prueba documento");
+    $document->add($parrafo1);
+    $document->add($form1);
+    $document->add($parrafo1);
+    $document->add(new SimpleField("nombre2","text","Escribe el nombre2"));
+    $document->render();
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>testForm</title>
-    <style>
-        form {
-            border: 1px solid blue;
-        }
-    </style>
-</head>
-<body>
-    <h1>Prueba con formulario.</h1>
-    <?php $form1 -> render(); ?>
-    
-</body>
-</html>

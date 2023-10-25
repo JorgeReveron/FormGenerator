@@ -1,5 +1,6 @@
 <?php
-class Form {
+require_once "Element.php";
+class Form extends Element{
     private $action;
     private $title;
     private $method;
